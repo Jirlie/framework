@@ -1,12 +1,12 @@
 from . import __version__ as app_version
 
 app_name = "frappe"
-app_title = "Frappe Framework"
-app_publisher = "Frappe Technologies"
+app_title = "Jirlie Framework"
+app_publisher = "Neu Ocean Technologies LTD."
 app_description = "Full stack web framework with Python, Javascript, MariaDB, Redis, Node"
-source_link = "https://github.com/frappe/frappe"
+source_link = "https://github.com/jirlie/framework"
 app_license = "MIT"
-app_logo_url = "/assets/images/Jirlie.gif"
+app_logo_url = "/assets/frappe/images/Jirlie.gif"
 
 develop_version = "14.x.x-develop"
 
@@ -14,7 +14,7 @@ app_email = "developers@frappe.io"
 
 docs_app = "frappe_docs"
 
-translator_url = "https://translate.erpnext.com"
+translator_url = "https://translate.jirlie.com"
 
 before_install = "frappe.utils.install.before_install"
 after_install = "frappe.utils.install.after_install"

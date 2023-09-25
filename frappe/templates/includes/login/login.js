@@ -228,8 +228,26 @@ login.login_handlers = (function () {
 		200: function (data) {
 			if (data.message == 'Logged In') {
 				login.set_status('{{ _("Success") }}', 'green');
-				document.body.innerHTML = `{% include "templates/includes/splash_screen.html" %}`;
-				window.location.href = frappe.utils.sanitise_redirect(frappe.utils.get_url_arg("redirect-to")) || data.home_page;
+				document.body.innerHTML = `{% include "templates/includes/splash.html" %}`;
+				const video = document.getElementById("loading-video");
+				const loadVideo = document.getElementById("load-video");
+				const loadVideoOne = document.getElementById("load-video-1");
+				
+				if (window.innerWidth <= 768) {
+				  let source = document.createElement("source");
+				  video.append(source);
+				  source.src = `assets/erpnext/video/mobile_hd.mp4`;
+				  source.type = `video/mp4`;
+				} else {
+				  let source = document.createElement("source");
+				  video.append(source);
+				  source.src = `assets/erpnext/video/desktop_hd.MP4`;
+				  source.type = `video/mp4`;
+				}
+				video.addEventListener("ended", () => {
+				  document.getElementById("loader").style.display = `none`;
+				  window.location.href = frappe.utils.sanitise_redirect(frappe.utils.get_url_arg("redirect-to")) || data.home_page;
+				});
 			} else if (data.message == 'Password Reset') {
 				window.location.href = frappe.utils.sanitise_redirect(data.redirect_to);
 			} else if (data.message == "No App") {
